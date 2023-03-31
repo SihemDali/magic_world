@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\MagicController;
 use Illuminate\Support\Facades\Route;
+
 
 Route::get('/magics', [MagicController::class, 'index'])->name('magics.index');
 Route::get('/magics/create', [MagicController::class, 'create'])->name('magics.create');

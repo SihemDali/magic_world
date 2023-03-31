@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Magic extends Model
 {
     use HasFactory;
-    protected $guarder =['id'];
+    protected $guarded =['id'];
+
 }
