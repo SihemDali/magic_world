@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title',"Suppression d'un personnage")
+@section('title',"Suppression du personnage")
 
 @section('content') 
 
-    <p>Le personnage {{$magic->nom}} a bien été supprimé !</p>
+    <p class="div-show">Le personnage {{$magic->nom}} a bien été supprimé !</p>
     
 @endsection

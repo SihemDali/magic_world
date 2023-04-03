@@ -4,6 +4,6 @@
 
 @section('content') 
 
-    <p> {{$message}} </p>
+    <p class="div-show"> {{$message}} </p>
     
 @endsection

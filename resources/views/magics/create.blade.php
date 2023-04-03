@@ -4,7 +4,7 @@
 
 @section('content') 
 
-    <form class="" action="{{ route('magics.store') }}" method="post">
+    <form class="form-magic" action="{{ route('magics.store') }}" method="post">
         @csrf
 
         <div class="">

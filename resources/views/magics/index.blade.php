@@ -4,19 +4,19 @@
 
 @section('content')   
 
-    <ul>
+    <ul class="ul-liste">
         @foreach ($magics as $item)
-            <li>
-                <h3>{{$item->nom}}</h3>
-                <p>Nom:{{$item->nom}}</p>
-                <p>Description: {{$item->description}} </p>
-                <p>Spécialité: {{$item->specialite}} </p>
-                <p>Magie: {{$item->magie}} </p>
-                <p>Force: {{$item->force}} </p>
-                <p>Agilité: {{$item->agilite}} </p>
-                <p>Intelligence: {{$item->intelligence}} </p>
-                <p>Points de vie: {{$item->pv}} </p>
-                <a href="{{route('magics.show',['magic'=>$item->nom])}}">Voir détails</a>
+            <li class="li-liste">
+                <h3 class="h-liste">{{$item->nom}}</h3>
+                <p class="p-liste">Nom : {{$item->nom}}</p>
+                <p class="p-liste">Description : {{$item->description}} </p>
+                <p class="p-liste">Spécialité : {{$item->specialite}} </p>
+                <p class="p-liste">Magie : {{$item->magie}} </p>
+                <p class="p-liste">Force : {{$item->force}} </p>
+                <p class="p-liste">Agilité : {{$item->agilite}} </p>
+                <p class="p-liste">Intelligence : {{$item->intelligence}} </p>
+                <p class="p-liste">Points de vie : {{$item->pv}} </p>
+                <a href="{{route('magics.show',['magic'=>$item->nom])}}" class="a-liste">Voir détails</a>
             </li>
                    
         @endforeach

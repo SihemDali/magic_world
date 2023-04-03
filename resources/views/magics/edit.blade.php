@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title','Modifier un personnage')
+@section('title','Modifier le personnage')
 
 @section('content') 
 
-    <form class="" action="{{ route('magics.update', ['magic'=>$details->nom]) }}" method="post">
+    <form class="form-magic" action="{{ route('magics.update', ['magic'=>$details->nom]) }}" method="post">
         @csrf
         @method('PUT')
 
@@ -34,13 +34,13 @@
         <input type="submit" value="Modifier" />
     </form>
 
-    <h2>Supprimer un personnage</h2>
+    <h2 class="principal-title">Supprimer le personnage</h2>
 
-    <form class="" action="{{ route('magics.destroy',['magic'=>$details->nom]) }}" method="post">
+    <form class="form-magic" action="{{ route('magics.destroy',['magic'=>$details->nom]) }}" method="post">
         @csrf
         @method('DELETE')
 
-        <div class="">
+        <div >
             <input type="submit" value="Supprimer" />
         </div>
     </form>  

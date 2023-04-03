@@ -1,10 +1,12 @@
 @extends('layouts.app')
 
-@section('title',"Modification d'un personnage" )
+@section('title',"Modification du personnage" )
 
 @section('content') 
 
-    <p>Le personnage a bien été modifié !</p>
+<div class="div-show">
+
+    <p class="confirmation">Le personnage a bien été modifié !</p>
     <p>Nom: {{$magic->nom}} </p>
     <p>Description: {{$magic->description}} </p>
     <p>Spécialité: {{$magic->specialite}} </p>
@@ -13,5 +15,5 @@
     <p>Agilité: {{$magic->agilite}} </p>
     <p>Intelligence: {{$magic->intelligence}} </p>
     <p>Points de vie: {{$magic->pv}} </p>
-    
+</div>   
 @endsection
