@@ -8,17 +8,17 @@
         @csrf
 
         <div class="">
-            <label for="name">Nom</label>
+            <label for="name">Nom : </label>
             <input id="name" type="text" name="nom" value="{{ old('name') }}" required />
         </div>
 
         <div class="">
-            <label for="description">Description</label>
+            <label for="description">Description : </label>
             <textarea name="description" id="description" cols="30" rows="10" value="{{ old('description') }}" required ></textarea>
         </div>
 
         <div class="">
-            <label for="specialite">Spécialité</label>
+            <label for="specialite">Spécialité : </label>
             <select id="specialite" name="specialite" required>
                 <option value="">--Choisir une spécialité--</option>
                 <option value="Guerrier">Guerrier</option>
@@ -28,6 +28,11 @@
                 <option value="Berserker">Berserker</option>
                 <option value="Archer">Archer</option>
             </select>
+        </div>
+
+        <div class="">
+            <label for="groupe">Groupe : </label>
+            <input id="groupe" type="text" name="groupe" value="{{ old('groupe') }}" required />
         </div>
 
         <input type="submit" value="Créer" />

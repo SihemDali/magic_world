@@ -15,5 +15,6 @@
     <p>Agilité: {{$magic->agilite}} </p>
     <p>Intelligence: {{$magic->intelligence}} </p>
     <p>Points de vie: {{$magic->pv}} </p>
+    <p>Groupe: {{$magic->groupe}} </p>
 </div>   
 @endsection

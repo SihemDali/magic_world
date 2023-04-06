@@ -21,7 +21,14 @@ return new class extends Migration
             $table->unsignedTinyInteger('agilite');
             $table->unsignedTinyInteger('intelligence');
             $table->unsignedTinyInteger('pv');
+            $table->string('groupe',50);
             $table->timestamps();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('groupe_id')->nullable();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('groupe_id')->references('id')->on('groupes');
+         
         });
     }
 

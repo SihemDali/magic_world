@@ -31,6 +31,11 @@
             </select>
         </div>
 
+        <div class="">
+            <label for="groupe">Groupe : </label>
+            <input id="groupe" type="text" name="groupe" value="{{ $details->groupe}}" required />
+        </div>
+
         <input type="submit" value="Modifier" />
     </form>
 

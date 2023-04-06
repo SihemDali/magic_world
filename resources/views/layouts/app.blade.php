@@ -9,16 +9,38 @@
 </head>
 
 <body>
-    <header>
-        
+    <header>        
         <nav class="nav-title">
            
             <p class="title">Magic World</p>
-            <ul class="ul-title">
-                <li class="li-title"><a href="{{route('magics.index')}}">Tous les personnages</a></li>
-                <li class="li-title"><a href="{{route('magics.create')}}">Créer un personnage</a></li>
-            </ul>
+            <?php
+            $user = Auth::user();
+            ?>
 
+            @if (!isset($user)) 
+            <ul class="ul-title">                        
+                <li class="li-title"><a href="{{route('magics.index')}}">Catalogue des Magics</a></li>
+                <li class="li-title"><a href="{{route('groupes.index')}}">Catalogue des Groupes</a></li>
+                <li class="li-title"><a href="{{route('magics.create')}}">Créer un Magic</a></li>
+                <li class="li-title"><a href="{{route('register.show')}}">S'inscrire</a></li>
+                <li class="li-title"><a href="{{route('login.show')}}">Se connecter</a></li>
+                
+             
+            </ul>              
+            
+            @endif
+            @if (isset($user)) 
+            <ul class="ul-title">                        
+                <li class="li-title"><a href="{{route('magics.index')}}">Catalogue des Magics</a></li>
+                <li class="li-title"><a href="{{route('groupes.index')}}">Catalogue des Groupes</a></li>
+                <li class="li-title"><a href="{{route('magics.create')}}">Créer un Magic</a></li>
+                <li class="li-title"><a href="{{route('groupes.create')}}">Créer un groupe</a></li>
+                <li class="li-title"><a href="{{route('magics.search')}}">Rechercher un Magic</a></li>
+                <li class="li-title"><a href="{{route('logout')}}">Se déconnecter</a></li>
+              
+            </ul>           
+            @endif   
+        
         </nav>
     </header>
     <h1 class="principal-title"> @yield('title')</h1>

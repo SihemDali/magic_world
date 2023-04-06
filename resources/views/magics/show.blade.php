@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Détails de : '.$details->nom )
+@section('title','Détails du personnage : '.$details->nom )
 
 @section('content') 
    <div class="div-show">
@@ -12,6 +12,7 @@
     <p>Agilité : {{$details->agilite}} </p>
     <p>Intelligence : {{$details->intelligence}} </p>
     <p>Points de vie : {{$details->pv}} </p>
+    <p>Groupe : {{$details->groupe}} </p>
 
     <a href="{{route('magics.edit',['magic'=>$details->nom])}}"> Modifier </a>
 </div>

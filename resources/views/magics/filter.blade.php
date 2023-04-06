@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('title','Liste des personnages')
+@section('title','Résultat de la recherche')
 
 @section('content')   
 
     <ul class="ul-liste">
-        @foreach ($magics as $item)
+        @foreach ($results as $item)
             <li class="li-liste">
                 <h3 class="h-liste">{{$item->nom}}</h3>
                 <p class="p-liste"><u><b> Nom </b></u>: {{$item->nom}}</p>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Magic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MagicController extends Controller
 {
@@ -13,17 +14,30 @@ class MagicController extends Controller
     }
 
     public function create(){
+        $user = Auth::user();
+
+        if(!isset($user)) {
+            return redirect()->route('login.show');
+        }
+
         return view('magics.create');
     }
 
     public function store(Request $request){
+        $user = Auth::user();
+
+        if(!isset($user)) {
+            return redirect()->route('login.show');
+        }
+
         $request->validate([
             'nom'=>'required|string|min:3|max:50|unique:magics,nom',
             'description'=>'required|string|min:0|max:100',
             'specialite'=>'required|string|min:3|max:50|in:Guerrier,Mage,Druide,Assassin,Berserker,Archer',
+            'groupe'=>'required|string|min:0|max:100',
           
         ]);
-       $data2 = Magic::create([
+       $data = Magic::create([
             'nom'=>$request->nom,
             'description'=>$request->description,
             'specialite'=>$request->specialite,
@@ -32,69 +46,116 @@ class MagicController extends Controller
             'agilite'=>rand(0,14),
             'intelligence'=>rand(0,14),
             'pv'=>rand(20,50),
+            'groupe'=>$request->groupe,
+            'user_id' => $user->id
         ]);
 
-        return view('magics.store',['magic'=>$data2]);
+        return view('magics.store',['magic'=>$data]);
 
     }
 
     public function show($magic){
+        $user = Auth::user();
 
-        $data3 = Magic::where('nom',$magic)->first();
+        if(!isset($user)) {
+            return redirect()->route('login.show');
+        }
 
-        if(!$data3){
+        $data = Magic::where('nom',$magic)->first();
+
+        if(!$data){
             return view('magics.error',['message'=>"Ce personnage n'existe pas!"]);
         }
 
-        return view('magics.show',['nom'=>$magic,'details'=>$data3]);
+        return view('magics.show',['nom'=>$magic,'details'=>$data]);
 
     }
 
     public function edit($magic){
-        
-        $data4 = Magic::where('nom',$magic)->first();
+        $user = Auth::user();
 
-        if(!$data4){
+        if(!isset($user)) {
+            return redirect()->route('login.show');
+        }
+        
+        $data = Magic::where('nom',$magic)->first();
+
+        if(!$data){
             return view('magics.error',['message'=>"Ce personnage n'existe pas!"]);
         }
 
-        return view('magics.edit',['details'=>$data4]);
+        return view('magics.edit',['details'=>$data]);
     }
 
     public function update($magic, Request $request){
+
+        $user = Auth::user();
+
+        if(!isset($user)) {
+            return redirect()->route('login.show');
+        }
+
         $request->validate([
             'nom'=>'required|string|min:3|max:50|unique:magics,nom',
             'description'=>'required|string|min:0|max:100',
             'specialite'=>'required|string|min:3|max:50|in:Guerrier,Mage,Druide,Assassin,Berserker,Archer',
+            'groupe'=>'required|string|min:0|max:100',
           
         ]);
 
-        $data5 = Magic::where('nom',$magic)->first();
+        $data = Magic::where('nom',$magic)->first();
 
-        if(!$data5){
+        if(!$data){
             return view('magics.error',['message'=>"Ce personnage n'existe pas!"]);
         }
 
-        $data5->nom = $request->nom;
-        $data5->description = $request->description;
-        $data5->specialite = $request->specialite;
+        $data->nom = $request->nom;
+        $data->description = $request->description;
+        $data->specialite = $request->specialite;
+        $data->groupe = $request->groupe;
 
-        $data5->save();
+        $data->save();
 
-        return view('magics.update',['magic'=>$data5]);
+        return view('magics.update',['magic'=>$data]);
 
     }
 
     public function destroy($magic){
-        $data6 = Magic::where('nom',$magic)->first();
+        $user = Auth::user();
 
-        if(!$data6){
+        if(!isset($user)) {
+            return redirect()->route('login.show');
+        }
+        
+        $data = Magic::where('nom',$magic)->first();
+
+        if(!$data){
             return view('magics.error',['message'=>"Ce personnage n'existe pas!"]);
         }
 
-        $data6->delete();
+        $data->delete();
 
-        return view('magics.destroy',['magic'=>$data6]);       
+        return view('magics.destroy',['magic'=>$data]);       
 
+    }
+
+    public function search()
+    {
+        return view('magics.search');
+    }
+
+    public function filter(Request $request )
+    {        
+       $data = Magic::where('nom','LIKE','%'.$request->nom.'%')->get();   
+       
+       if(!$data) {
+        return view('magics.error',['message'=>"Aucun Magic trouvé!"]);       
+       }
+
+       $request->validate
+       ([
+       'nom'=>'required|string|min:3|max:50',
+       ]);  
+       return view('magics.filter',['results'=>$data]);
     }
 }
