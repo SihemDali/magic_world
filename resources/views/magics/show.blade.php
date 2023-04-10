@@ -13,7 +13,6 @@
     <p>Intelligence : {{$details->intelligence}} </p>
     <p>Points de vie : {{$details->pv}} </p>
     <p>Groupe : {{$details->groupe}} </p>
-
     <a href="{{route('magics.edit',['magic'=>$details->nom])}}"> Modifier </a>
 </div>
 @endsection

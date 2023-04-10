@@ -15,8 +15,7 @@
                 <p class="p-liste"><u><b> Force </b></u> : {{$item->force}} </p>
                 <p class="p-liste"><u><b> Agilité </b></u>: {{$item->agilite}} </p>
                 <p class="p-liste"><u><b> Intelligence </b></u>: {{$item->intelligence}} </p>
-                <p class="p-liste"><u><b> Points de vie </b></u>: {{$item->pv}} </p>
-              
+                <p class="p-liste"><u><b> Points de vie </b></u>: {{$item->pv}} </p>              
             </li>
                    
         @endforeach

@@ -199,6 +199,4 @@ class MagicController extends Controller
        ]);  
        return view('magics.filter',['results'=>$data]);
     }
-
-
 }
