@@ -39,7 +39,23 @@ class MagicController extends Controller
           
         ]);
 
-       //$test = Groupe::where('nom', $request->groupe)->first();
+       $test = Groupe::where('nom', $request->groupe)->first();
+       if ($test){
+        $data = Magic::create([
+            'nom'=>$request->nom,
+            'description'=>$request->description,
+            'specialite'=>$request->specialite,
+            'magie'=>rand(0,14),
+            'force'=>rand(0,14),
+            'agilite'=>rand(0,14),
+            'intelligence'=>rand(0,14),
+            'pv'=>rand(20,50),
+            'groupe'=>$request->groupe,
+            'groupe_id' => $test->id,
+            'user_id'=> optional(auth()->user())->id,
+        ]);
+
+       }
 
        $data = Magic::create([
             'nom'=>$request->nom,
@@ -51,7 +67,7 @@ class MagicController extends Controller
             'intelligence'=>rand(0,14),
             'pv'=>rand(20,50),
             'groupe'=>$request->groupe,
-           // 'groupe_id' => $test->id,
+            'groupe_id' => null,
             'user_id'=> optional(auth()->user())->id,
         ]);
 

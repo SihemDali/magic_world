@@ -16,6 +16,7 @@
                 <p class="p-liste"><u><b> Agilité </b></u>: {{$item->agilite}} </p>
                 <p class="p-liste"><u><b> Intelligence </b></u>: {{$item->intelligence}} </p>
                 <p class="p-liste"><u><b> Points de vie </b></u>: {{$item->pv}} </p>
+                <p class="p-liste"><u><b> Groupe </b></u>: {{$item->groupe}} </p>
                 <a href="{{route('magics.show',['magic'=>$item->nom])}}" class="a-liste">Voir détails</a>
             </li>
                    
