@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Liste des groupes')
+@section('title','Les groupes de Magics')
 
 @section('content')   
 

@@ -12,17 +12,17 @@ Route::get('/magics/create', [MagicController::class, 'create'])->name('magics.c
 Route::post('/magics', [MagicController::class, 'store'])->name('magics.store');
 Route::get('/magics/search', [MagicController::class, 'search'])->name('magics.search');
 Route::post('/magics/filter', [MagicController::class, 'filter'])->name('magics.filter');
+Route::post('/magics/filterspecialite', [MagicController::class, 'filterspecialite'])->name('magics.filterspecialite');
 Route::get('/magics/{magic}', [MagicController::class, 'show'])->name('magics.show');
 Route::get('/magics/{magic}/edit', [MagicController::class, 'edit'])->name('magics.edit');
 Route::put('/magics/{magic}', [MagicController::class, 'update'])->name('magics.update');
 Route::delete('/magics/{magic}', [MagicController::class, 'destroy'])->name('magics.destroy');
 
-
-
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login.show');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register.show');
 Route::post('/register', [AuthController::class, 'register'])->name('register.post');
+
 Route::get('/logout',[AuthController::class, 'logout'])->name('logout');
 
 Route::get('/profile',[UserController::class,'profile'])->name('user.profile');

@@ -32,7 +32,7 @@
 
         <div class="">
             <label for="groupe">Groupe : </label>
-            <input id="groupe" type="text" name="groupe" value="{{ old('groupe') }}" required />
+            <input id="groupe" type="text" name="groupe" value="{{ old('groupe') }}"/>
         </div>
 
         <input type="submit" value="Créer" />

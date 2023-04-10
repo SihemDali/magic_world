@@ -13,8 +13,10 @@ html, body {
     background-color: #400E32;
     color:#F2921D;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    font-size:small;
+    justify-content:space-around;
+
    
 }
 
@@ -49,7 +51,7 @@ html, body {
 }
 
 .nav-title .ul-title .li-title a:hover {
-    color: #080f3d;
+    color: #400E32;
     background-color:#F2921D;
 }
 
@@ -65,8 +67,7 @@ html, body {
 }                        
 
 footer {
-    background-color: #f2cc9f ;
-    color: #080f3d;
+    background-color: #f2cc9f ;   
     font-weight: bold;
     position: fixed;   
     bottom: 0;
@@ -84,7 +85,7 @@ footer {
     justify-content: center;
     letter-spacing: 0.1rem;
     font-size: 2rem;   
-    color:#080f3d;
+    color:#400E32;
     margin: 10px;
 
 }
@@ -119,7 +120,7 @@ footer {
    
     font-size: 1.6rem;
     margin: 1.2rem;
-    color: #080f3d;   
+    color: #400E32;   
 }
 
 .a-liste{
@@ -137,7 +138,7 @@ footer {
     justify-content: center;
     align-items: center;    
     background-color: #A61F69 ;
-    border: 1px solid black;
+    border: 1px solid #400E32;
     margin: auto;   
     padding: 20px;
     margin: auto;   
@@ -150,13 +151,13 @@ footer {
       border:1px solid #FFBF9B;
       border-radius:5px; 
       width:120px;
-      box-shadow:1px 1px 1px #080f3d;;
+      box-shadow:1px 1px 1px #400E32;
       cursor:pointer;   
       
     }
 
     input[type=submit]:focus{
-        background-color: #080f3d;
+        background-color: #400E32;
         color:#FFBF9B;
     }
 
@@ -169,13 +170,13 @@ footer {
     }
     
     input:focus  {
-      background: #F2CD5C;
+      background: #F2921D;
     }   
     textarea:focus {
-        background: #F2CD5C;
+        background: #F2921D;
     }
     select:focus {
-        background: #F2CD5C;
+        background: #F2921D;
     }
 
     label {
@@ -195,10 +196,16 @@ footer {
         border-radius: 2%;    
         width: 30vw;
         background-color: #F2CD5C;
-        border: 1px solid black;
+        border: 1px solid #400E32;
 
     }
     .confirmation{
         font-weight: bolder;
+    }
+
+    .h2-search{
+        display: flex;
+        justify-content: center;
+        padding-top: 30px;
     }
   

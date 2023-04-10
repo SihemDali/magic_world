@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Liste des personnages')
+@section('title','Les Magics')
 
 @section('content')   
 

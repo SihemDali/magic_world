@@ -55,15 +55,14 @@ class GroupeController extends Controller
             return redirect()->route('login.show');
         }
 
-        $details = Groupe::where('nom',$groupe)->first();
-        $personnages = Magic::where('groupe_id', $details->id);
-        //dd($personnages);
+        $groupe_details = Groupe::where('nom',$groupe)->first();
+        $personnages = Magic::where('groupe_id',$groupe_details->id)->get();
 
-        if(!$details){
+        if(!$groupe_details){
             return view('groupes.error',['message'=>"Ce groupe n'existe pas!"]);
         }
 
-        return view('groupes.show',['nom'=>$groupe,'details'=>$details, 'personnages'=>$personnages]);
+        return view('groupes.show',['nom'=>$groupe,'details'=>$groupe_details,'personnages'=>$personnages]);
 
     }
 

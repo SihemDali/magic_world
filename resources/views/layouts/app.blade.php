@@ -33,6 +33,8 @@
             <ul class="ul-title">                        
                 <li class="li-title"><a href="{{route('magics.index')}}">Catalogue des Magics</a></li>
                 <li class="li-title"><a href="{{route('groupes.index')}}">Catalogue des Groupes</a></li>
+              
+
                 <li class="li-title"><a href="{{route('magics.create')}}">Créer un Magic</a></li>
                 <li class="li-title"><a href="{{route('groupes.create')}}">Créer un groupe</a></li>
                 <li class="li-title"><a href="{{route('magics.search')}}">Rechercher un Magic</a></li>
